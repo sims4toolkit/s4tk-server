@@ -21,4 +21,4 @@ Test with Python
 python3 tests/test.py
 ```
 
-You may also test this project with [Postman](https://www.postman.com/).
+You may also test this project with [Postman](https://www.postman.com/). Here's a collection of my test requests: https://www.getpostman.com/collections/5b90aec125481379cf55.
