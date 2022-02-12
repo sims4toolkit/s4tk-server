@@ -9,10 +9,10 @@ app.use(bodyParser.text())
 app.get('/simdata-binary', (req, res) => {
   simDataXmlToBinary(req.body)
     .then(buffer => {
-      //
+      res.status(200).send(buffer.toString("base64"));
     })
     .catch(err => {
-      res.status(400).send(`XML could not be parsed as SimData: ${err}`);
+      res.status(400).send(`XML could not be parsed as SimData\n\n${err}`);
     });
 });
 
