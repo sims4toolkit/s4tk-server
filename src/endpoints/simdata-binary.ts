@@ -8,7 +8,7 @@ import { SimDataResource } from "@s4tk/models";
 export default async function simDataXmlToBinary(xml: string): Promise<Buffer> {
   return new Promise(async (resolve, reject) => {
     try {
-      const simdata = await SimDataResource.fromXmlAsync(xml);
+      const simdata = SimDataResource.fromXml(xml);
       const result = simdata.buffer; // just to let it throw if needed
       resolve(result);
     } catch (err) {

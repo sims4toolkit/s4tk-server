@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import simDataXmlToBinary from "./endpoints/simdata-binary";
+import simDataBinaryToXml from "./endpoints/simdata-xml";
 
 const port = 3000;
 const app = express();
@@ -13,6 +14,16 @@ app.get('/simdata-binary', (req, res) => {
     })
     .catch(err => {
       res.status(400).send(`XML could not be parsed as SimData\n\n${err}`);
+    });
+});
+
+app.get('/simdata-xml', (req, res) => {
+  simDataBinaryToXml(req.body)
+    .then(xml => {
+      res.status(200).send(xml);
+    })
+    .catch(err => {
+      res.status(400).send(`Buffer could not be parsed as SimData\n\n${err}`);
     });
 });
 
